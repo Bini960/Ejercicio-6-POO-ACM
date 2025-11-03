@@ -1,9 +1,9 @@
 /**
 Andrés Castro Morales
 25039
- * - Contiene TODOS los System.out.println del programa.
- * - Genera el menú, lee la opción y produce las salidas legibles para el usuario.
- * - No realiza lógica del negocio; solo formatea y muestra datos.
+ * Contiene TODOS los System.out.println del programa.
+ * Genera el menú, lee la opción y produce las salidas legibles para el usuario.
+ * No realiza lógica del negocio; solo formatea y muestra datos.
  */
 
 import java.util.List;
@@ -65,25 +65,18 @@ public class Vista {
             System.out.println("Dispositivo no encontrado.");
             return;
         }
-        // Mostrar atributos principales
         System.out.println("ID: " + d.getId());
         System.out.println("Nombre: " + d.getNombre());
         System.out.println("Fabricante: " + d.getFabricante());
         System.out.println("Consumo (W): " + d.getConsumoWatts());
         System.out.println("Activo: " + d.isActivo());
 
-        // Mostrar capacidades detectadas (según interfaces)
         String caps = "";
         if (d instanceof Medible) caps += "[Medible] ";
         if (d instanceof Accionable) caps += "[Accionable] ";
         if (d instanceof Registrable) caps += "[Registrable] ";
         System.out.println("Capacidades: " + caps);
 
-        // Si es Medible, mostrar una medición de ejemplo (OPCIONAL: no obligatorio)
-        if (d instanceof Medible) {
-            Medicion m = ((Medible) d).medir();
-            System.out.println("Última medición (ejemplo): " + m);
-        }
     }
 
     public void mostrarBusquedaNombre(String nombre, List<Dispositivo> res) {
@@ -123,6 +116,7 @@ public class Vista {
         }
     }
 
+    // Separador visual entre operaciones del menú (evita println fuera de Vista). 
     public void mostrarSeparador() {
         System.out.println();
     }
